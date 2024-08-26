@@ -168,12 +168,6 @@ include ('../app/controllers/estudiantes/reporte_estudiantes.php');
             }
             ?>
 
-
-
-
-
-
-
            <!-- vista para el administrador -->
             <?php
             if($rol_sesion_usuario == "ADMINISTRADOR"){ ?>
@@ -567,16 +561,11 @@ include ('../layout/mensajes.php');
         $('.knob').knob({
             draw: function () {
                 if (this.$.data('skin') == 'tron') {
-                    var a   = this.angle(this.cv)  // Angle
-                        ,
-                        sa  = this.startAngle          // Previous start angle
-                        ,
-                        sat = this.startAngle         // Start angle
-                        ,
-                        ea                            // Previous end angle
-                        ,
-                        eat = sat + a                 // End angle
-                        ,
+                    var a   = this.angle(this.cv),  // Angle
+                        sa  = this.startAngle,          // Previous start angle
+                        sat = this.startAngle,         // Start angle
+                        ea,                            // Previous end angle
+                        eat = sat + a,                 // End angle
                         r   = true
 
                     this.g.lineWidth = this.lineWidth

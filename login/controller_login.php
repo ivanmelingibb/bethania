@@ -25,7 +25,7 @@ foreach ($usuarios as $usuario){
     $contador = $contador +1;
 }
 
-if( ($contador>0) && (password_verify($password,$password_tabla)) ){
+if( ($contador>0) && (password_verify($password, $password_tabla)) ){
     echo "los datos son correctos";
     session_start();
     $_SESSION['mensaje'] = "Bienvenido al sistema";
