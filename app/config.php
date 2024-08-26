@@ -11,7 +11,7 @@ define('PASSWORD', '!Ff324023');
 define('BD','sisgestionescolar');
 
 define('APP_NAME', 'SISTEMA DE GESTIÓN ESCOLAR');
-define('APP_URL', 'http://' . $_SERVER['SERVER_ADDR'] . '/sisgestionescolar');
+define('APP_URL', 'http://' . $_SERVER['SERVER_ADDR']);
 define('KEY_API_MAPS', '');
 
 $servidor = "mysql:dbname=" . BD . ";host=" . SERVIDOR;
