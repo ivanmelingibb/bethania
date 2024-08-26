@@ -55,6 +55,7 @@ foreach ($instituciones as $institucione){
 
 ///////////////////////// traendo los datos del pago del estudiante
 foreach ($pagos as $pago){
+    $año_pagado = $pago['año_pagado'];
     $mes_pagado = $pago['mes_pagado'];
     $monto_pagado = $pago['monto_pagado'];
     $fecha_pagado = $pago['fecha_pagado'];
@@ -132,11 +133,11 @@ $style = array(
     'module_height' => 1 // height of a single module in points
 );
 $QR = 'Este recibo de caja es verificado por el sistema de pago de la Unidad Educativa '.$nombre_institucion.',
-por el pago del mes de '.$mes_pagado.' la suma de '.$monto_pagado.' en '.$fechaHora;
+por el pago del mes de '.$mes_pagado.' del año '.$año_pagado.' la suma de '.$monto_pagado.' en '.$fechaHora;
 $pdf->write2DBarcode($QR,'QRCODE,L',  170,50,30,30, $style);
 
 $QR2 = 'Este recibo de caja es verificado por el sistema de pago de la Unidad Educativa '.$nombre_institucion.',
-por el pago del mes de '.$mes_pagado.' la suma de '.$monto_pagado.' en '.$fechaHora;
+por el pago del mes de '.$mes_pagado.' del año '.$año_pagado.' la suma de '.$monto_pagado.' en '.$fechaHora;
 $pdf->write2DBarcode($QR2,'QRCODE,L',  170,180,30,30, $style);
 
 
@@ -186,11 +187,15 @@ $html = '
     <td>'.$curso.' | Paralelo: '.$paralelo.'</td>
 </tr>
 <tr>
-    <td width="170px"><b>Mes cancelado: </b></td>
+    <td width="170px"><b>Año pagado: </b></td>
+    <td>'.$año_pagado.'</td>
+</tr>
+<tr>
+    <td width="170px"><b>Mes pagado: </b></td>
     <td>'.$mes_pagado.'</td>
 </tr>
 <tr>
-    <td width="170px"><b>Monto cancelado: </b></td>
+    <td width="170px"><b>Monto pagado: </b></td>
     <td>Bs. '.$monto_pagado.'</td>
 </tr>
 
@@ -262,6 +267,10 @@ Fecha: '.$dia_actual.' de '.$mes_actual.' de '.$ano_actual.'
 <tr>
     <td width="170px"><b>Curso: </b></td>
     <td>'.$curso.' | Paralelo: '.$paralelo.'</td>
+</tr>
+<tr>
+    <td width="170px"><b>Año pagado: </b></td>
+    <td>'.$año_pagado.'</td>
 </tr>
 <tr>
     <td width="170px"><b>Mes cancelado: </b></td>
