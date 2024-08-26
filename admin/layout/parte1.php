@@ -30,13 +30,14 @@ if (isset($_SESSION['sesion_email'])) {
     $query_roles_permisos->execute();
     $roles_permisos = $query_roles_permisos->fetchAll(PDO::FETCH_ASSOC);
 
-    $rest = $_SERVER["REQUEST_URI"];
+    $rest = strtok($_SERVER["REQUEST_URI"], '?');
     if (!str_ends_with($rest, '.php')) {
         if (!str_ends_with($rest, '/')) {
             $rest = $rest . '/';
         }
         $rest = $rest . 'index.php';
     }
+
     $contador_permiso = 0;
     foreach ($roles_permisos as $roles_permiso){
         if ($id_rol_sesion_usuario == $roles_permiso['rol_id']) {
