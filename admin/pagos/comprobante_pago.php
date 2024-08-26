@@ -198,7 +198,7 @@ $html = '
 </table>
 
 
-<br><br><br><br><BR>
+<br><br><br><br>
 
 <table border="0">
 <tr>
@@ -276,7 +276,7 @@ Fecha: '.$dia_actual.' de '.$mes_actual.' de '.$ano_actual.'
 </table>
 
 
-<br><br><br><br><BR>
+<br><br><br><br>
 
 <table border="0">
 <tr>
