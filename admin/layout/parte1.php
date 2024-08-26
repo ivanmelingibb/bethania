@@ -20,7 +20,6 @@ if (isset($_SESSION['sesion_email'])) {
        $ci_sesion_usuario = $datos_sesion_usuario['ci'];
     }
 
-    $rest = $_SERVER["REQUEST_URI"];
 
     $sql_roles_permisos = "SELECT * FROM roles_permisos as rolper 
                        INNER JOIN permisos as per ON per.id_permiso = rolper.permiso_id 
@@ -31,11 +30,18 @@ if (isset($_SESSION['sesion_email'])) {
     $query_roles_permisos->execute();
     $roles_permisos = $query_roles_permisos->fetchAll(PDO::FETCH_ASSOC);
 
+    $rest = $_SERVER["REQUEST_URI"];
+    if (!str_ends_with($rest, '.php')) {
+        if (!str_ends_with($rest, '/')) {
+            $rest = $rest . '/';
+        }
+        $rest = $rest . 'index.php';
+    }
     $contador_permiso = 0;
     foreach ($roles_permisos as $roles_permiso){
         if ($id_rol_sesion_usuario == $roles_permiso['rol_id']) {
             //echo $roles_permiso['url'];
-            if ($rest == $roles_permiso['url'] || $rest . '/index.php' == $roles_permiso['url']) {
+            if ($rest == $roles_permiso['url']) {
                 // echo "permiso autorizado - ";
                 $contador_permiso++;
             }
