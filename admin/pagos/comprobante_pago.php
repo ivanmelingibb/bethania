@@ -187,16 +187,12 @@ $html = '
     <td>'.$curso.' | Paralelo: '.$paralelo.'</td>
 </tr>
 <tr>
-    <td width="170px"><b>Año pagado: </b></td>
-    <td>'.$año_pagado.'</td>
-</tr>
-<tr>
     <td width="170px"><b>Mes pagado: </b></td>
-    <td>'.$mes_pagado.'</td>
+    <td>'.$mes_pagado.'/'.$año_pagado.'</td>
 </tr>
 <tr>
     <td width="170px"><b>Monto pagado: </b></td>
-    <td>Bs. '.$monto_pagado.'</td>
+    <td>$'.$monto_pagado.'</td>
 </tr>
 
 </table>
@@ -269,16 +265,12 @@ Fecha: '.$dia_actual.' de '.$mes_actual.' de '.$ano_actual.'
     <td>'.$curso.' | Paralelo: '.$paralelo.'</td>
 </tr>
 <tr>
-    <td width="170px"><b>Año pagado: </b></td>
-    <td>'.$año_pagado.'</td>
-</tr>
-<tr>
-    <td width="170px"><b>Mes cancelado: </b></td>
-    <td>'.$mes_pagado.'</td>
+    <td width="170px"><b>Mes pagado: </b></td>
+    <td>'.$mes_pagado.'/'.$año_pagado.'</td>
 </tr>
 <tr>
     <td width="170px"><b>Monto cancelado: </b></td>
-    <td>Bs. '.$monto_pagado.'</td>
+    <td>$'.$monto_pagado.'</td>
 </tr>
 
 </table>
