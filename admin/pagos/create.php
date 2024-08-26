@@ -39,7 +39,8 @@ include ('../../app/controllers/pagos/datos_pago_estudiante.php');
                             <table class="table table-striped table-bordered table-sm table-hovers">
                                 <tr>
                                     <th style="text-align: center;background-color: #0cd0e6">Nro</th>
-                                    <th style="text-align: center;background-color: #0cd0e6">Mes cancelado</th>
+                                    <th style="text-align: center;background-color: #0cd0e6">Año pagado</th>
+                                    <th style="text-align: center;background-color: #0cd0e6">Mes pagado</th>
                                     <th style="text-align: center;background-color: #0cd0e6">Monto</th>
                                     <th style="text-align: center;background-color: #0cd0e6">Fecha de pago</th>
                                     <th style="text-align: center;background-color: #0cd0e6">Acciones</th>
@@ -51,8 +52,9 @@ include ('../../app/controllers/pagos/datos_pago_estudiante.php');
                                     $id_pago = $pago['id_pago']; ?>
                                     <tr>
                                         <td><center><?=$contador = $contador +1;?></center></td>
-                                        <td><?=$pago['mes_pagado'];?></td>
-                                        <td><center>Bs. <?=$pago['monto_pagado'];?></center></td>
+                                        <td><center><?=$pago['año_pagado'];?></center></td>
+                                        <td><center><?=$pago['mes_pagado'];?></center></td>
+                                        <td><center>$<?=$pago['monto_pagado'];?></center></td>
                                         <td><center><?=$pago['fecha_pagado'];?></center></td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
@@ -86,6 +88,12 @@ include ('../../app/controllers/pagos/datos_pago_estudiante.php');
                                                                         </div>
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
+                                                                                <label for="">Año pagado</label>
+                                                                                <input type="number" min="2020" max="2099" step="1" name="año_pagado" class="form-control" value="<?=$pago['año_pagado'];?>">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
                                                                                 <label for="">Mes pagado</label>
                                                                                 <select name="mes_pagado" id="" class="form-control">
                                                                                     <option value="ENERO" <?=$pago['mes_pagado']=="ENERO" ? 'selected' : ''?>>ENERO</option>
@@ -106,7 +114,7 @@ include ('../../app/controllers/pagos/datos_pago_estudiante.php');
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
                                                                                 <label for="">Monto pagado</label>
-                                                                                <input type="text" name="monto_pagado" class="form-control" value="<?=$pago['monto_pagado'];?>">
+                                                                                <input type="number" min="0" name="monto_pagado" class="form-control" value="<?=$pago['monto_pagado'];?>">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-12">
@@ -209,6 +217,12 @@ include ('../../layout/mensajes.php');
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="">Año pagado</label>
+                                <input type="number" min="2020" max="2099" step="1" name="año_pagado" class="form-control" value="2024">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="">Mes pagado</label>
                                 <select name="mes_pagado" id="" class="form-control">
                                     <option value="ENERO">ENERO</option>
@@ -229,7 +243,7 @@ include ('../../layout/mensajes.php');
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Monto pagado</label>
-                                <input type="text" name="monto_pagado" class="form-control" value="0">
+                                <input type="number" min="0" name="monto_pagado" class="form-control" value="0">
                             </div>
                         </div>
                         <div class="col-md-12">
