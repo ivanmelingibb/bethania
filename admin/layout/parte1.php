@@ -20,7 +20,6 @@ if (isset($_SESSION['sesion_email'])) {
        $ci_sesion_usuario = $datos_sesion_usuario['ci'];
     }
 
-    $url = $_SERVER["PHP_SELF"];
     $rest = $_SERVER["REQUEST_URI"];
 
     $sql_roles_permisos = "SELECT * FROM roles_permisos as rolper 
@@ -36,13 +35,10 @@ if (isset($_SESSION['sesion_email'])) {
     foreach ($roles_permisos as $roles_permiso){
         if ($id_rol_sesion_usuario == $roles_permiso['rol_id']) {
             //echo $roles_permiso['url'];
-            if ($rest == $roles_permiso['url']) {
+            if ($rest == $roles_permiso['url'] || $rest . '/index.php' == $roles_permiso['url']) {
                 // echo "permiso autorizado - ";
                 $contador_permiso++;
-            } else {
-                // echo "no autorizadó";
             }
-
         }
     }
     if ($contador_permiso > 0) {
